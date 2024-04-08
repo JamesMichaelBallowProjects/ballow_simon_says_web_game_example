@@ -1,0 +1,15 @@
+/* Background */
+#body-elem {
+    background-image: url("../img/background/hogwarts_castle_1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+/* fonts */
+.cinzel-font {
+    font-family: "Cinzel", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+
