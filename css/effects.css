@@ -3,7 +3,7 @@
     text-align: center;
     background-image: url("../img/background/hogwarts_castle_1.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100vw 100vh;
   }
 
 #play-game-button {
@@ -65,3 +65,36 @@
     width: auto;
     object-fit: contain;
 } */
+
+:root {
+    --gryffindor-color: rgb(219, 75, 75);
+    --slytherin-color: rgb(89, 219, 75);
+    --hufflepuff-color: rgb(219, 203, 27);
+    --ravenclaw-color: rgb(36, 113, 200);
+}
+
+
+#gryffindor.highlight-piece {
+    filter: drop-shadow(-5px -5px 5px var(--gryffindor-color))
+            drop-shadow(-5px 5px 5px var(--gryffindor-color))
+            drop-shadow(5px -5px 5px var(--gryffindor-color))
+            drop-shadow(5px 5px 5px var(--gryffindor-color));
+}
+#slytherin.highlight-piece {
+    filter: drop-shadow(-5px -5px 5px var(--slytherin-color))
+            drop-shadow(-5px 5px 5px var(--slytherin-color))
+            drop-shadow(5px -5px 5px var(--slytherin-color))
+            drop-shadow(5px 5px 5px var(--slytherin-color));
+}
+#hufflepuff.highlight-piece {
+    filter: drop-shadow(-5px -5px 5px var(--hufflepuff-color))
+            drop-shadow(-5px 5px 5px var(--hufflepuff-color))
+            drop-shadow(5px -5px 5px var(--hufflepuff-color))
+            drop-shadow(5px 5px 5px var(--hufflepuff-color));
+}
+#ravenclaw.highlight-piece {
+    filter: drop-shadow(-5px -5px 5px var(--ravenclaw-color))
+            drop-shadow(-5px 5px 5px var(--ravenclaw-color))
+            drop-shadow(5px -5px 5px var(--ravenclaw-color))
+            drop-shadow(5px 5px 5px var(--ravenclaw-color));
+}
