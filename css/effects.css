@@ -1,32 +1,48 @@
 /* Background */
 #body-elem {
     text-align: center;
-    background-image: url("../img/background/parchment.jpg");
+    background-image: url("../img/background/hogwarts_castle_1.jpg");
     background-repeat: no-repeat;
     background-size: cover;
   }
 
-#welcome-page {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 9999; /* Ensure the overlay appears on top of other elements */
+#play-game-button {
+    background-color: green;
+    height: 100px;
+    width: 100px;
 }
 
-#welcome-page .hide-page {
+#welcome-page {
+    text-align: center;
+    background-image: url("../img/background/parchment.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    opacity: 100;
     z-index: 9999; /* Ensure the overlay appears on top of other elements */
-    display: none;
+    transition-property: opacity, z-index;
+    transition-duration: 4s, 0s;
+    transition-delay: 0s, 3s;
+}
+
+#welcome-page.hide-page {
+    opacity: 0;
+    /* display: none; */
+    z-index: -100;
 }
 
 
 #game-board {
+    z-index: 9999;
     /* display: none; */
 }
 
