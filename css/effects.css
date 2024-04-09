@@ -46,6 +46,11 @@
     /* display: none; */
 }
 
+#game-board-crest {
+    height: 20%;
+    width: auto;
+}
+
 
 /* fonts */
 .cinzel-font {
@@ -55,3 +60,8 @@
     font-style: normal;
   }
 
+/* #game-board-crest .game-piece {
+    height: 20%;
+    width: auto;
+    object-fit: contain;
+} */
