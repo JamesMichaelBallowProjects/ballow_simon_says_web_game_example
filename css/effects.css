@@ -74,25 +74,25 @@
 }
 
 
-#gryffindor.highlight-piece {
+#gryffindor.ignite {
     filter: drop-shadow(-5px -5px 5px var(--gryffindor-color))
             drop-shadow(-5px 5px 5px var(--gryffindor-color))
             drop-shadow(5px -5px 5px var(--gryffindor-color))
             drop-shadow(5px 5px 5px var(--gryffindor-color));
 }
-#slytherin.highlight-piece {
+#slytherin.ignite {
     filter: drop-shadow(-5px -5px 5px var(--slytherin-color))
             drop-shadow(-5px 5px 5px var(--slytherin-color))
             drop-shadow(5px -5px 5px var(--slytherin-color))
             drop-shadow(5px 5px 5px var(--slytherin-color));
 }
-#hufflepuff.highlight-piece {
+#hufflepuff.ignite {
     filter: drop-shadow(-5px -5px 5px var(--hufflepuff-color))
             drop-shadow(-5px 5px 5px var(--hufflepuff-color))
             drop-shadow(5px -5px 5px var(--hufflepuff-color))
             drop-shadow(5px 5px 5px var(--hufflepuff-color));
 }
-#ravenclaw.highlight-piece {
+#ravenclaw.ignite {
     filter: drop-shadow(-5px -5px 5px var(--ravenclaw-color))
             drop-shadow(-5px 5px 5px var(--ravenclaw-color))
             drop-shadow(5px -5px 5px var(--ravenclaw-color))

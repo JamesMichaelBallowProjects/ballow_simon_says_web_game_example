@@ -55,11 +55,7 @@
             </select>
 
             <script>
-              let backgroundSelector = document.getElementById("background-img-selector")
-              backgroundSelector.addEventListener('change', () => {
-                console.log(`You chose: ${backgroundSelector.value}`)
-                document.getElementById("body-elem").style.backgroundImage = `url(${backgroundSelector.value})`;
-              })
+
             </script>
 
 
@@ -97,15 +93,13 @@
             <div class="row" style="margin: 0;">
               <div class="col" style="display: block; justify-content: right; align-items:end; padding: 0;">
                 <div style="display: flex; justify-content: right; align-items:end; padding: 0;">
-                  <img id="gryffindor" src="./img/game/gryffindor.png" style="object-fit: contain; width: 100%;"
-                    class="highlight-piece" alt="">
+                  <img id="gryffindor" src="./img/game/gryffindor.png" style="object-fit: contain; width: 100%;" onClick="check_user_pattern_this_click(this)" alt="">
                 </div>
               </div>
               <div class="col" style="display: block; justify-content: left; align-items:end; padding: 0;">
                 <div>
                   <div style="display: flex; justify-content: left; align-items:end; padding: 0; ">
-                    <img id="slytherin" src="./img/game/slytherin.png" style="object-fit: contain; width: 100%;"
-                      class="highlight-piece" alt="">
+                    <img id="slytherin" src="./img/game/slytherin.png" style="object-fit: contain; width: 100%;" onClick="check_user_pattern_this_click(this)" alt="">
                   </div>
                 </div>
               </div>
@@ -115,14 +109,12 @@
             <div class="row" style="margin: 0;">
               <div class="col" style="display: block; justify-content: right; align-items:start; padding: 0;">
                 <div style="display: flex; justify-content: right; align-items:start; padding: 0; ">
-                  <img id="hufflepuff" src="./img/game/hufflepuff.png" style="object-fit: contain; width: 100%;"
-                    class="highlight-piece" alt="">
+                  <img id="hufflepuff" src="./img/game/hufflepuff.png" style="object-fit: contain; width: 100%;" onClick="check_user_pattern_this_click(this)" alt="">
                 </div>
               </div>
               <div class="col" style="display: block; justify-content: left; align-items:start; padding: 0;">
                 <div style="display: flex; justify-content: left; align-items:start; padding: 0; ">
-                  <img id="ravenclaw" src="./img/game/ravenclaw.png" style="object-fit: contain; width: 100%;"
-                    class="highlight-piece" alt="">
+                  <img id="ravenclaw" src="./img/game/ravenclaw.png" style="object-fit: contain; width: 100%;" onClick="check_user_pattern_this_click(this)" alt="">
                 </div>
               </div>
             </div>
