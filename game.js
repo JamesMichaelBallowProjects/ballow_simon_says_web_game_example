@@ -20,6 +20,8 @@ var gameLevel;
 var currentClick;
 var sound;
 var gameActive = false;
+var semaphore_lock = true;
+let hermioneGif = document.getElementById('hermione-gif-leviosa');
 
 var gamePieces = [
     "gryffindor",
@@ -27,6 +29,12 @@ var gamePieces = [
     "hufflepuff",
     "ravenclaw"
 ]
+var sounds = {
+    "gryffindor": "",
+    "slytherin": "",
+    "hufflepuff": "",
+    "ravenclaw": ""
+}
 var gamePieceActivationTimeout = 1000
 
 // game piece animations
@@ -45,12 +53,14 @@ function activate_game_piece(game_piece_element){
 // setup new game
 function setup_new_game(params) {
     gamePattern = [];
-    userPattern = [];
+    // userPattern = [];
     gameStarted = false;
-    gameLevel = -1;
-    currentClick = -1;
+    gameLevel = 0;
+    currentClick = 0;
     gameActive = true;
+    semaphore_lock = true;  //lockout user
 }
+
 function start_game(params) {
     // reset memory
     setup_new_game();
@@ -74,44 +84,60 @@ function ballow_says_next_game_piece(){
     // show user selected game piece
     setTimeout(() => {
         activate_game_piece(document.getElementById(gamePieceId))
+        semaphore_lock = false;  // release game pieces to player
     }, gamePieceActivationTimeout);
-    console.log(`Ballow says next piece is: ${gamePieceId}`)
 }
 
 function check_user_pattern_this_click(seleted_game_piece) {
-    // todo only permit execution of this if lock is not locked
+    if (!semaphore_lock) {
+        // increment click count
+        currentClick++;
 
-    // increment click count
-    currentClick++;
+        // animate
+        activate_game_piece(seleted_game_piece)
 
-    // animate
-    activate_game_piece(seleted_game_piece)
-
-    // check answer
-    check_selected_game_piece(seleted_game_piece.id)
-
-    // add answer to list
+        // check answer
+        check_selected_game_piece(seleted_game_piece.id)
+    }
 }
 
 function check_selected_game_piece(game_piece_id){
-    console.log(`Checking Selection: ${game_piece_id}`)
     if (gameActive) {
-        if (game_piece_id != gamePattern[currentClick]){
-            console.log("LOSE!")
-            gameActive = false;
-            sound = new Audio('./sounds/green.mp3');
-            // $("h1").html("Oh no! That's wrong! Press any key to start again.")
+        // last clicked game piece was not what Ballow Says
+        if (game_piece_id != gamePattern[currentClick-1]){
+            gracefully_end_game()
         }else{
-            console.log("CORRECT PIECE.")
-            // they are equal so far, so add it to list
-            userPattern.push(game_piece_id)
-            if (currentClick+1 == gamePattern.length){
+            // entire sequence is what Ballow Says
+            if (currentClick == gamePattern.length){
                 console.log("CORRECT SEQUENCE.")
                 currentClick = 0;
-                ballow_says_next_game_piece();
+                // userPattern = [];
+                semaphore_lock = true;
+                setTimeout(() => {
+                    ballow_says_next_game_piece();
+               }, gamePieceActivationTimeout);
+
+            // answer so far is what Ballow Says, but user not done yet
             } else {
                 console.log("Keep clicking")
             }
         }
     }
+}
+
+function gracefully_end_game() {
+    console.log(`You achieved a score of: ${gameLevel-1}`)
+    gameActive = false;
+    semaphore_lock = true;
+    setTimeout(() => {
+        hermioneGif.hidden = false;
+        setTimeout(() => {
+            sound = new Audio('./sounds/leviosa_not_leviosaaa.mp3');
+            sound.play();
+        }, 340);
+        setTimeout(() => {
+            hermioneGif.hidden = true;
+        }, 4400)
+    }, gamePieceActivationTimeout)
+
 }
