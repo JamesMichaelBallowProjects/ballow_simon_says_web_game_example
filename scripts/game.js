@@ -1,13 +1,13 @@
 // welcome page
 // -- disappear and play music
-// let welcomePage = document.getElementById('welcome-page')
-// document.getElementById('play-game-button').addEventListener('click', () => {
-//     var sound = new Audio('./sounds/main_theme.mp3');
-//     sound.play();
-// })
-// function transition_to_game() {
-//     welcomePage.classList.add('hide-page')
-// }
+let welcomePage = document.getElementById('welcome-page')
+document.getElementById('play-game-button').addEventListener('click', () => {
+    var sound = new Audio('./sounds/main_theme.mp3');
+    sound.play();
+})
+function transition_to_game() {
+    welcomePage.classList.add('hide-page')
+}
 
 // background image selector
 let backgroundSelector = document.getElementById("background-img-selector")
